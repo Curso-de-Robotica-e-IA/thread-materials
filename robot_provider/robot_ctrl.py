@@ -22,7 +22,7 @@ class RobotCtrl:
         RobotContext.set_action_command(ActionCommand.STOP)
 
     def get_status(self):
-        return self.__robotStatus
+        return RobotContext.get_execution_status()
 
     def pause(self):
         RobotContext.set_action_command(ActionCommand.PAUSE)
