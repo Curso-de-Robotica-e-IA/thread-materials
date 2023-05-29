@@ -63,7 +63,7 @@ class RobotProvider():
 
     def __run_commands(self):
         if not RobotContext.is_connected():
-            print('robot not connection started')
+            print('robot connection not started')
             RobotContext.set_execution_status(ExecutionStatus.IDLE)
             return
         
