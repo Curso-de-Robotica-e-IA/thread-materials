@@ -18,26 +18,27 @@ class ActionCommand(Enum):
 class MoveType(Enum):
     JOINT = auto()
     CARTESIAN = auto()
+    
 @dataclass
 class RobotJointCommand():
     type:MoveType = MoveType.JOINT
-    joint1:float
-    joint2:float
-    joint3:float
-    joint4:float
-    joint5:float
-    joint6:float
+    joint1:float = 0
+    joint2:float = 0
+    joint3:float = 0
+    joint4:float = 0
+    joint5:float = 0
+    joint6:float = 0
 
 @dataclass
 class RobotCartesianCommand():
     type:MoveType = MoveType.CARTESIAN
-    x:float
-    y:float
-    z:float
-    rx:float
-    ry:float
-    rz:float
-    
+    x:float = 0
+    y:float = 0
+    z:float = 0
+    rx:float = 0
+    ry:float = 0
+    rz:float = 0
+
 class RobotExecutionContext():
     def __init__(self) -> None:
         self.__command_queue = deque()
