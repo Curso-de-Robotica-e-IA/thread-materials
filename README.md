@@ -4,7 +4,9 @@
 
 # Visão geral
 ## Arquitetura
-
+![Fluxo de dados](/doc/images/provider-fluxo.png)
+Gerenciamento de atividades por meio de uma fila de ações. De um lado, temos threads que produzem comandos/requisições, produtoras. Do outro lado, temos threads que consomem os comandos e executam ações, consumidora.
+Comunicação encadeada em uma sequência.
 
 ## Especificação de elementos:
 ### Robot Execution Context:
