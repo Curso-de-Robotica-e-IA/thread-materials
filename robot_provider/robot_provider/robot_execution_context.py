@@ -1,59 +1,7 @@
 from collections import deque
-from enum import Enum, auto
 from threading import Lock
-from dataclasses import dataclass
+from utils.constants import ExecutionStatus, ActionCommand
 
-class ExecutionStatus(Enum):
-    RUNNING = auto()
-    IDLE = auto()
-    PAUSED = auto()
-    STOPPED = auto()
-    ERROR = auto()
-
-class ActionCommand(Enum):
-    PAUSE = auto()
-    STOP = auto()
-    FLUSH_ERROR = auto()
-
-class MoveType(Enum):
-    JOINT = auto()
-    CARTESIAN = auto()
-
-@dataclass
-class RobotJointCommand():
-    type:MoveType = MoveType.JOINT
-    joint1:float = 0
-    joint2:float = 0
-    joint3:float = 0
-    joint4:float = 0
-    joint5:float = 0
-    joint6:float = 0
-
-    def __init__(self, j1, j2, j3, j4, j5, j6):
-        self.joint1 = j1
-        self.joint2 = j2
-        self.joint3 = j3
-        self.joint4 = j4
-        self.joint5 = j5
-        self.joint6 = j6
-
-@dataclass
-class RobotCartesianCommand():
-    type:MoveType = MoveType.CARTESIAN
-    x:float = 0
-    y:float = 0
-    z:float = 0
-    rx:float = 0
-    ry:float = 0
-    rz:float = 0
-
-    def __init__(self, x, y, z, rx, ry, rz):
-        self.x = x
-        self.y = y
-        self.z = z
-        self.rx = rx
-        self.ry = ry
-        self.rz = rz
 
 class RobotExecutionContext():
     def __init__(self) -> None:
