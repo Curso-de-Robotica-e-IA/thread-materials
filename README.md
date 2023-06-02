@@ -6,6 +6,13 @@
 - Durante a execução de comandos a biblioteca do robô segura a execução até a movimentação ser concluída.
     - Durante a dispensação a interface e outras operações ficariam travadas.
 
+## Requisitos
+- Controlar a execução a partir da main thread;
+- Manter a separação de contexto entre as funções e objetos do robô, e da aplicação principal;
+- Ser possível pausar e retornar as movimentações do robô de onde parou;
+- Ser possível parar a execução e cancelar as movimentações pendentes;
+- Limpar erros e reiniciar movimentações.
+
 # Visão geral
 ## Arquitetura
 ![Fluxo de dados](/doc/images/provider-fluxo.png)
@@ -20,6 +27,14 @@ Comunicação encadeada em uma sequência.
 - Passagem de dados e mensagem entre as threads;
 - Singleton para garantir a unicidade do objeto;
 - Embrulho com mutex para gerenciar os acessos, com o uso de gets e sets;
+
+### Constants:
+- Padronização de flags, com o uso de enumerações;
+- RobotStatus: Status simplificados para a interface de usuário;
+- RobotType: Tipo do robô a ser usado, atualmente não utilizado;
+- ExecutionStatus: Status completo da execução do provider no gerenciamento do robô e da execução assíncrona;
+- ActionCommand: Comandos especiais e de interrupção do robô;
+- MoveType: Tipo do sistema de coordenada de movimentação utilizada;
 
 ### Robot Provider:
 - Contexto com os objetos do robô, a conexão e o threadPool;
