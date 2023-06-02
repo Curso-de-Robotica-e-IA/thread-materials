@@ -1,4 +1,5 @@
 # Thread-materials
+Execução assíncrona de comando bloqueantes sem travar a execução da main thread, posibilitando o gerenciamento e delegação de atividades da parte síncrona para a parte assíncrona.
 
 # Contexto de uso
 - Aplicações de robótica em tempo real.
@@ -36,6 +37,11 @@ Comunicação encadeada em uma sequência.
 - ActionCommand: Comandos especiais e de interrupção do robô;
 - MoveType: Tipo do sistema de coordenada de movimentação utilizada;
 
+### Packages:
+- Pacotes utilizando dataclasses para padronizar o formato dos objetos que contém os parâmetros de comandos para serem executados pelo robô;
+- RobotJointCommand: Pacote com os parâmetros que definem uma posição destino para uma movimentação por juntas;
+- RobotCartesianCommand: Pacote com os parâmetros que definem uma posição destino para uma movimentação cartesiana;
+
 ### Robot Provider:
 - Contexto com os objetos do robô, a conexão e o threadPool;
 - Criação e submissão de tarefas para a execução no threadPool;
@@ -58,3 +64,9 @@ Comunicação encadeada em uma sequência.
 # Exemplo de uso
 
 # Pontos em aberto
+- Limpeza de erros;
+- Abrir e fechar gripper;
+- Obter status da operação direta do robô;
+- Parada emergencial;
+- Verificação de se o robô está conectado;
+- Opção de criação de uso com um robô dammy para testes;
