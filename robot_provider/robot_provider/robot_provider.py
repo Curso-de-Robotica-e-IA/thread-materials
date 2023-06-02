@@ -1,4 +1,5 @@
-from robot_execution_context import RobotContext, ExecutionStatus, ActionCommand, MoveType
+from robot_execution_context import RobotContext
+from utils.constants import ExecutionStatus, ActionCommand, MoveType
 from rria_api.robot_facade import * # TODO: substituir pelo pyniryo 
 import sys
 from concurrent.futures import ThreadPoolExecutor
@@ -8,7 +9,7 @@ class RobotProvider():
     def __init__(self, robot_name):
         # TODO: substituir pelo pyniryo 
         self.__robot = RobotObject('192.168.2.10', robot_name)
-        
+
         self.__thread_pool = ThreadPoolExecutor(max_workers=1)
         self.__robot_mutex = Lock()
     
