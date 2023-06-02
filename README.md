@@ -1,12 +1,18 @@
 # Thread-materials
 
 # Contexto de uso
+- Aplicações de robótica em tempo real.
+    - Processar a decisão e controlar 6 robôs móveis ao mesmo tempo.
+- Durante a execução de comandos a biblioteca do robô segura a execução até a movimentação ser concluída.
+    - Durante a dispensação a interface e outras operações ficariam travadas.
 
 # Visão geral
 ## Arquitetura
 ![Fluxo de dados](/doc/images/provider-fluxo.png)
 Gerenciamento de atividades por meio de uma fila de ações. De um lado, temos threads que produzem comandos/requisições, produtoras. Do outro lado, temos threads que consomem os comandos e executam ações, consumidora.
 Comunicação encadeada em uma sequência.
+
+![Arquitetura](/doc/images/arquitetura.png)
 
 ## Especificação de elementos:
 ### Robot Execution Context:
