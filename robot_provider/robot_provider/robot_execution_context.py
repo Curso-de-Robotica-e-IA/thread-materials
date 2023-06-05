@@ -4,6 +4,10 @@ from utils.constants import ExecutionStatus, ActionCommand
 
 
 class RobotExecutionContext:
+    """
+    This class is responsible for storing the all robot execution context. This class works as a singleton.
+    The singleton instance is created at the end of the module.
+    """
     def __init__(self) -> None:
         self.__command_queue = deque()
         self.__execution_status = ExecutionStatus.IDLE
@@ -65,4 +69,5 @@ class RobotExecutionContext:
             self.__connected = connected
 
 
+"""Here we create a singleton instance of RobotExecutionContext for use in robot_provider and robot_controller."""
 RobotContext = RobotExecutionContext()

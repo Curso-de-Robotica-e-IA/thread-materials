@@ -4,18 +4,21 @@ from utils.constants import MoveType
 
 @dataclass
 class RobotJointCommand:
+    """
+    This class is a data class that represents a robot joint command.
+    """
     type: MoveType = MoveType.JOINT
-    joint1: float = 0
-    joint2: float = 0
-    joint3: float = 0
-    joint4: float = 0
-    joint5: float = 0
-    joint6: float = 0
+    joint_1: float = 0
+    joint_2: float = 0
+    joint_3: float = 0
+    joint_4: float = 0
+    joint_5: float = 0
+    joint_6: float = 0
 
     def __init__(self, j1, j2, j3, j4, j5, j6):
-        self.joint1 = j1
-        self.joint2 = j2
-        self.joint3 = j3
-        self.joint4 = j4
-        self.joint5 = j5
-        self.joint6 = j6
+        self.joint_1 = j1
+        self.joint_2 = j2
+        self.joint_3 = j3
+        self.joint_4 = j4
+        self.joint_5 = j5
+        self.joint_6 = j6

@@ -4,6 +4,9 @@ from utils.constants import MoveType
 
 @dataclass
 class RobotCartesianCommand:
+    """
+    This class is a data class that represents a robot cartesian command.
+    """
     type: MoveType = MoveType.CARTESIAN
     x: float = 0
     y: float = 0

@@ -1,3 +1,6 @@
+"""
+This module contains all enums used in the system.
+"""
 from enum import Enum, auto
 
 

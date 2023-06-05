@@ -4,7 +4,11 @@ from robot_provider.robot_execution_context import RobotContext, ActionCommand, 
 
 
 class RobotCtrl:
-
+    """
+    This class represents the robot controller. It is responsible for controlling the robot.
+    In your system, this class must be customized. This class was written as a base, not necessarily it will have to be
+    used that way, it can be adapted.
+    """
     def __init__(self):
         self.status: RobotStatus = RobotStatus.STOP
         self.__robotProvider = RobotProvider('gen3')

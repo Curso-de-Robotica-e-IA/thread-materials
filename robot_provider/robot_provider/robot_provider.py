@@ -6,7 +6,13 @@ from concurrent.futures import ThreadPoolExecutor
 from threading import Lock
 
 
-class RobotProvider():
+class RobotProvider:
+    """
+    This class is the RobotProvider and is responsible for:
+    1 - Manage the context with the robot objects, the connection and the threadPool;
+    2 - Creation and submission of tasks for execution in the threadPool;
+    3- Interface between the synchronous and asynchronous call;
+    """
     def __init__(self, robot_name):
         # TODO: substituir pelo pyniryo 
         self.__robot = RobotObject('192.168.2.10', robot_name)
@@ -99,8 +105,8 @@ class RobotProvider():
                 print(command)
                 if command.type == MoveType.JOINT:
                     print(command)
-                    self.__robot.move_joints(command.joint1, command.joint2, command.joint3, command.joint4,
-                                             command.joint5, command.joint6)
+                    self.__robot.move_joints(command.joint_1, command.joint_2, command.joint_3, command.joint_4,
+                                             command.joint_5, command.joint_6)
                 elif command.type == MoveType.CARTESIAN:
                     print(command)
                     self.__robot.move_cartesian(command.x, command.y, command.z, command.rx, command.ry, command.rz)
