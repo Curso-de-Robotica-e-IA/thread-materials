@@ -3,8 +3,6 @@ from packages.robot_cartesian_command import RobotCartesianCommand
 from packages.robot_joint_command import RobotJointCommand
 
 
-# in this module has an example using cli for interact with robot
-
 def main():
     robot_controller = RobotCtrl()
     while True:
