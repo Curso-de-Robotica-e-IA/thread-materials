@@ -16,6 +16,8 @@ def main():
         elif tecla == 'mj':
             robot_controller.move([RobotJointCommand(0, 40, 0, 0, 0, 0), RobotJointCommand(0, -40, 0, 0, 0, 0),
                                    RobotJointCommand(30, 40, 0, 0, 0, 0)])
+        elif tecla == 'mc':
+            robot_controller.move([RobotCartesianCommand(0.2, 0.1, 0.3, 0.0, 0.5, 0.0)])
         elif tecla == 'mz':
             robot_controller.move([RobotJointCommand(0, 0, 0, 0, 0, 0)])
         elif tecla == 's':
