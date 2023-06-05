@@ -1,13 +1,16 @@
 from enum import Enum, auto
 
+
 class RobotStatus(Enum):
     START = auto()
     STOP = auto()
     PAUSE = auto()
 
+
 class RobotType(Enum):
     KINOVA = auto()
     NIRYO = auto()
+
 
 class ExecutionStatus(Enum):
     RUNNING = auto()
@@ -16,10 +19,12 @@ class ExecutionStatus(Enum):
     STOPPED = auto()
     ERROR = auto()
 
+
 class ActionCommand(Enum):
     PAUSE = auto()
     STOP = auto()
     FLUSH_ERROR = auto()
+
 
 class MoveType(Enum):
     JOINT = auto()

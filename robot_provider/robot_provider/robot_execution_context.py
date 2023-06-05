@@ -3,14 +3,14 @@ from threading import Lock
 from utils.constants import ExecutionStatus, ActionCommand
 
 
-class RobotExecutionContext():
+class RobotExecutionContext:
     def __init__(self) -> None:
         self.__command_queue = deque()
         self.__execution_status = ExecutionStatus.IDLE
-        self.__conected = False
+        self.__connected = False
         self.__action_command = None
         self.__mutex = Lock()
-    
+
     def enqueue_command(self, command) -> None:
         with self.__mutex:
             self.__command_queue += command
@@ -20,7 +20,7 @@ class RobotExecutionContext():
             if len(self.__command_queue) > 0:
                 element = self.__command_queue.popleft()
                 return element
-    
+
     def clean_commands(self):
         with self.__mutex:
             self.__command_queue.clear()
@@ -29,8 +29,8 @@ class RobotExecutionContext():
         with self.__mutex:
             element = self.__execution_status
             return element
-    
-    def set_execution_status(self, execution_status:ExecutionStatus):
+
+    def set_execution_status(self, execution_status: ExecutionStatus):
         with self.__mutex:
             self.__execution_status = execution_status
 
@@ -39,13 +39,13 @@ class RobotExecutionContext():
             element = self.__action_command
             self.__action_command = None
             return element
-    
+
     def get_action_command(self):
         with self.__mutex:
             element = self.__action_command
             return element
-    
-    def set_action_command(self, action_command:ActionCommand):
+
+    def set_action_command(self, action_command: ActionCommand):
         with self.__mutex:
             self.__action_command = action_command
 
@@ -55,14 +55,14 @@ class RobotExecutionContext():
 
     def is_connected(self):
         with self.__mutex:
-            element = self.__conected
+            element = self.__connected
             return element
-        
+
         return False
-    
+
     def set_connected(self, connected):
         with self.__mutex:
-            self.__conected = connected
+            self.__connected = connected
 
 
 RobotContext = RobotExecutionContext()
