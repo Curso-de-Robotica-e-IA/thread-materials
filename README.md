@@ -62,7 +62,34 @@ Comunicação encadeada em uma sequência.
 - Execução de uma sequência de comandos;
 
 # Exemplo de uso
-
+CLI de execução **(robot_provider/run_cli.py)**
+```Python
+def main():
+    robot_controller = RobotCtrl()
+    while True:
+        tecla = input('Enter a command for using the robot arm: ')
+        if tecla == 'c':
+            robot_controller.connect()
+        elif tecla == 'd':
+            robot_controller.disconnect()
+        elif tecla == 'mj':
+            robot_controller.move([RobotJointCommand(0, 40, 0, 0, 0, 0), RobotJointCommand(0, -40, 0, 0, 0, 0),
+                                   RobotJointCommand(30, 40, 0, 0, 0, 0)])
+        elif tecla == 'mc':
+            robot_controller.move([RobotCartesianCommand(0.2, 0.1, 0.3, 0.0, 0.5, 0.0)])
+        elif tecla == 'mz':
+            robot_controller.move([RobotJointCommand(0, 0, 0, 0, 0, 0)])
+        elif tecla == 's':
+            robot_controller.stop()
+        elif tecla == 'p':
+            robot_controller.pause()
+        elif tecla == 'r':
+            robot_controller.resume()
+        elif tecla == 'g':
+            robot_controller.get_status()
+        elif tecla == 'q':
+            break
+```
 # Pontos em aberto
 - Limpeza de erros;
 - Abrir e fechar gripper;
